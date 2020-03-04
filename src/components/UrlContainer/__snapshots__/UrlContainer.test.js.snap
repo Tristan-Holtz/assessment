@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UrlContainer should render the component 1`] = `
+<section>
+  <div
+    className="url"
+  >
+    <h3>
+      Awesome photo
+    </h3>
+    <a
+      href="http://localhost:3001/useshorturl/1"
+      target="blank"
+    >
+      http://localhost:3001/useshorturl/1
+    </a>
+    <p>
+      https://images.unsplash.com/photo-1531898418865-480b7090470f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80
+    </p>
+  </div>
+</section>
+`;
