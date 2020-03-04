@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { postUrl } from '../../apiCalls';
 import { connect } from 'react-redux';
-import { setUrls } from '../../actions';
+import { setUrls, addUrl } from '../../actions';
 
 export class UrlForm extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.props = props;
     this.state = {
       title: '',
@@ -20,7 +20,7 @@ export class UrlForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     await postUrl(this.state.title, this.state.urlToShorten).then(data =>
-      this.props.setUrls([data])
+      this.props.addUrl(data)
     );
     this.clearInputs();
   };
@@ -57,7 +57,14 @@ export class UrlForm extends Component {
 export const mapDispatchToProps = dispatch => ({
   setUrls: urls => {
     dispatch(setUrls(urls));
+  },
+  addUrl: url => {
+    dispatch(addUrl(url));
   }
 });
 
-export default connect(null, mapDispatchToProps)(UrlForm);
+export const mapStateToProps = state => ({
+  urls: state.urls
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UrlForm);
